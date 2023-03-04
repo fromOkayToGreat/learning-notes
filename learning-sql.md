@@ -37,3 +37,62 @@ DESCRIPTION: This is a multi-line comment and how to write a comment in SQL
  */
 
 ```
+
+### Considerations for writing a SQL statement or script
+
+What table within the database are we requesting data from?
+What fields within that table are we interested in?
+Do we want to exclude any data or filter or omit any range or time period?
+What does our query do?
+
+## Aliases
+
+An alias is a way to improve the communication of a query result to a business audience by allowing us to rename a column to a more appropriate business name. Use the AS keyword to create an alias. The alias can be enclosed in square brackets or single quotes if it contains spaces. Otherwise, the alias can be written without quotes.
+
+```sql
+
+SELECT
+    first_name AS [Customer First Name],
+    last_name AS 'Customer Last Name',
+    email AS EMAIL
+FROM
+    customers;
+
+```
+
+### ORDER BY
+
+The ORDER BY clause is used to sort the result-set in ascending or descending order. The ORDER BY clause sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
+
+```sql
+
+SELECT
+    first_name AS [Customer First Name],
+    last_name AS 'Customer Last Name',
+    email AS EMAIL
+FROM
+    customers
+ORDER BY
+    first_name DESC;
+
+```
+
+### LIMIT
+
+The LIMIT clause is used to specify the maximum number of records the query will return.
+
+```sql
+
+SELECT
+    first_name AS [Customer First Name],
+    last_name AS 'Customer Last Name',
+    email AS EMAIL
+FROM
+    customers
+ORDER BY
+    first_name DESC
+LIMIT 10;
+
+```
+
+### WHERE

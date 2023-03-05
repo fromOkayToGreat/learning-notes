@@ -96,3 +96,59 @@ LIMIT 10;
 ```
 
 ### WHERE
+
+The WHERE clause is used to filter records. Only the records that fulfill the condition are returned.
+
+```sql
+
+SELECT
+    first_name AS [Customer First Name],
+    last_name AS 'Customer Last Name',
+    email AS EMAIL
+FROM
+    customers
+WHERE
+    first_name = 'John';
+
+```
+
+### % wildcard
+
+The % wildcard represents zero, one, or multiple characters.
+
+```sql
+
+SELECT
+    first_name AS [Customer First Name],
+    last_name AS 'Customer Last Name',
+    email AS EMAIL
+FROM
+    customers
+WHERE
+    first_name LIKE 'J%';
+
+```
+
+### CASE (if then else)
+
+The CASE statement is used to create different outputs (usually in the SELECT statement). It is similar to an IF-THEN-ELSE statement in other programming languages.
+
+```sql
+
+SELECT
+	InvoiceDate,
+	BillingAddress,
+	BillingCity,
+	total,
+CASE
+	WHEN total < 2.00 THEN 'Baseline'
+	WHEN total BETWEEN 2.00 AND 6.99 THEN 'Low'
+	WHEN total BETWEEN 7.00 AND 15.00 THEN 'Target'
+	ELSE 'Top'
+	END AS PurchaseType
+FROM
+	Invoice
+ORDER BY
+	PurchaseType
+
+```

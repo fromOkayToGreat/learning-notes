@@ -129,6 +129,10 @@ WHERE
 
 ```
 
+### \* wildcard
+
+(\*) is a wildcard character that is used as a shorthand for selecting all columns in a table. When used in the SELECT statement, the asterisk tells the database to return all columns from the table that is being queried.
+
 ### CASE (if then else)
 
 The CASE statement is used to create different outputs (usually in the SELECT statement). It is similar to an IF-THEN-ELSE statement in other programming languages.
@@ -140,15 +144,29 @@ SELECT
 	BillingAddress,
 	BillingCity,
 	total,
-CASE
-	WHEN total < 2.00 THEN 'Baseline'
-	WHEN total BETWEEN 2.00 AND 6.99 THEN 'Low'
-	WHEN total BETWEEN 7.00 AND 15.00 THEN 'Target'
-	ELSE 'Top'
-	END AS PurchaseType
+    CASE
+        WHEN total < 2.00 THEN 'Baseline'
+        WHEN total BETWEEN 2.00 AND 6.99 THEN 'Low'
+        WHEN total BETWEEN 7.00 AND 15.00 THEN 'Target'
+        ELSE 'Top'
+    END AS PurchaseType
 FROM
 	Invoice
 ORDER BY
 	PurchaseType
 
 ```
+
+## JOINS
+
+### INNER JOIN
+
+An INNER JOIN only returns matching records. Any unmatched data from either table is ignored.
+
+### LEFT OUTER JOIN
+
+A LEFT OUTER JOIN combines all the records from the left table with any matching records from the right table.
+
+### RIGHT OUTER JOIN
+
+A RIGHT OUTER JOIN combines all the records from the right table with any matching records from the left table. **This JOIN is not supported by SQLite.**

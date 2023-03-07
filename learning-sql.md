@@ -299,3 +299,10 @@ ORDER BY
 
 ```
 
+### Aggregated vs Non-aggregated subqueries
+
+Aggregated subqueries use an aggregate function (e.g. SUM, AVG, MAX, MIN, COUNT) to perform a calculation on a set of values and return a single result. They are often used in queries that need to find the highest, lowest, or average value of a column, or to count the number of rows that meet a certain condition.
+
+Non-aggregated subqueries do not use an aggregate function, but instead return multiple rows or columns of data. They are often used in queries that need to filter data based on a specific condition, such as finding all records that match a certain value or comparing data between different tables.
+
+Both types of subqueries can be used in combination with other SQL clauses, such as SELECT, WHERE, HAVING, and GROUP BY, to build more complex queries that can perform advanced data analysis and manipulation.

@@ -306,3 +306,71 @@ Aggregated subqueries use an aggregate function (e.g. SUM, AVG, MAX, MIN, COUNT)
 Non-aggregated subqueries do not use an aggregate function, but instead return multiple rows or columns of data. They are often used in queries that need to filter data based on a specific condition, such as finding all records that match a certain value or comparing data between different tables.
 
 Both types of subqueries can be used in combination with other SQL clauses, such as SELECT, WHERE, HAVING, and GROUP BY, to build more complex queries that can perform advanced data analysis and manipulation.
+
+
+## Views
+
+Views are virtual tables that are created from the results of a query. They are not stored in the database, but are created dynamically when the query is executed. Views are often used to simplify complex queries, hide sensitive data, or provide a more convenient interface to the data in a table.
+
+
+```sql
+
+CREATE VIEW V_AvgTotal AS
+SELECT
+    AVG(Total)
+FROM
+    Invoice
+
+```
+
+### CREATE VIEW
+
+The CREATE VIEW statement is used to create a new view in the database. The view is created from the results of a query, which is specified in the SELECT statement.
+
+### DROP VIEW
+
+The DROP VIEW statement is used to delete a view from the database. The view to be deleted is specified in the FROM clause.
+
+**Some RDBMS do not support modifying views, instead the VIEW gets DROPPED and then recreated with same name**
+
+## Data Manipulation Language (DML)
+
+SQL statements used to alter the data stored in the tables of a database.
+
+### INSERT
+
+Used to insert new rows into a table.  It can also be used to insert data into a table from another table, or to insert multiple rows at once.
+
+```sql
+
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+
+```
+
+### UPDATE
+
+Used to modify existing rows in a table.
+
+```sql
+
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+
+```
+
+### DELETE
+
+Used to delete existing rows from a table.
+
+
+```sql
+
+DELETE FROM table_name
+WHERE condition;
+
+```
+
+**It's important to use these statements carefully, as they can have a significant impact on the data in a database. It's a best practice to always backup data before performing any updates or deletions.**
+
